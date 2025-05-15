@@ -11,13 +11,13 @@ const { chromium } = require('playwright');
     const page = await context.newPage();
 
     try {
-      await page.goto('https://webhostmost.com/login');
+      await page.goto('https://client.webhostmost.com/login');
       await page.fill('input[name="username"]', usernames[i]);
       await page.fill('input[name="password"]', passwords[i]);
       await page.click('button[type="submit"]');
       
       // 检查页面跳转是否成功
-      await page.waitForURL('https://webhostmost.com/clientarea.php', { timeout: 60000 });
+      await page.waitForURL('https://client.webhostmost.com/', { timeout: 60000 });
 
       console.log(`用户 ${usernames[i]} 登录成功！`);
 
